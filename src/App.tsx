@@ -176,6 +176,13 @@ export default class App extends React.Component {
                      <img src="./twitter.svg" alt="twitter profile" />
                   </a>
                   <a
+                     href="https://github.com/stevejboyer"
+                     target="_blank"
+                     rel="noopener noreferrer"
+                  >
+                     <img src="./github.svg" alt="github profile" />
+                  </a>
+                  <a
                      href="./steve_boyer_resume.pdf"
                      target="_blank"
                      rel="noopener noreferrer"
