@@ -1,54 +1,259 @@
-<!-- hello, fellow Internet person -->
-<html>
+<!doctype html>
+<html lang="en">
 	<head>
+		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Steve Boyer</title>
+		<meta
+			name="description"
+			content="Steve Boyer builds thoughtful software products, interfaces, and experiments for the web."
+		/>
 		<style>
-			.blink {
-				animation: blinker 1s step-start infinite;
+			:root {
+				--bg: #0a0a0a;
+				--text: #ffffff;
+				--muted: #666666;
+				--line: #333333;
+				--link: #cccccc;
+				--link-hover: #ffffff;
 			}
 
-			@keyframes blinker {
-				50% {
-					opacity: 0;
+			* {
+				box-sizing: border-box;
+			}
+
+			html {
+				min-height: 100%;
+				background: var(--bg);
+			}
+
+			body {
+				margin: 0;
+				min-height: 100vh;
+				display: grid;
+				place-items: center;
+				padding: 120px 24px;
+				background: transparent;
+				color: var(--text);
+				font-family: Geist, 'Avenir Next', Avenir, 'Segoe UI', sans-serif;
+			}
+
+			main {
+				width: min(100%, 600px);
+			}
+
+			.content {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				gap: 40px;
+				padding: 20px 0;
+			}
+
+			.identity,
+			.projects,
+			.project-list,
+			.project {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
+
+			.identity {
+				gap: 20px;
+				text-align: center;
+			}
+
+			.portrait {
+				display: block;
+				width: 80px;
+				height: 80px;
+				border-radius: 999px;
+				object-fit: cover;
+			}
+
+			h1,
+			p {
+				margin: 0;
+			}
+
+			h1 {
+				font-size: 28px;
+				font-weight: 500;
+				letter-spacing: -0.06em;
+				line-height: 1;
+				text-transform: lowercase;
+			}
+
+			.tagline,
+			.project-description,
+			.projects-label {
+				color: var(--muted);
+			}
+
+			.tagline,
+			.link {
+				font-size: 16px;
+			}
+
+			.links {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+				align-items: center;
+				gap: 24px;
+			}
+
+			.link {
+				color: var(--link);
+				text-decoration: none;
+				transition:
+					color 180ms ease,
+					transform 180ms ease;
+			}
+
+			.link:hover,
+			.link:focus-visible {
+				color: var(--link-hover);
+				transform: translateY(-1px);
+			}
+
+			.divider {
+				width: 40px;
+				height: 1px;
+				background: var(--line);
+			}
+
+			.projects {
+				width: 100%;
+				gap: 24px;
+				text-align: center;
+			}
+
+			.projects-label {
+				font-size: 12px;
+				font-weight: 500;
+				letter-spacing: 0.08em;
+				text-transform: lowercase;
+			}
+
+			.project-list {
+				width: 100%;
+				gap: 16px;
+			}
+
+			.project {
+				gap: 4px;
+			}
+
+			.project-name {
+				position: relative;
+				display: inline-flex;
+				justify-content: center;
+				color: var(--text);
+				font-size: 16px;
+				font-weight: 500;
+				text-decoration: none;
+			}
+
+			.project-name span {
+				transition: opacity 180ms ease;
+			}
+
+			.project-name .project-url {
+				position: absolute;
+				opacity: 0;
+				white-space: nowrap;
+			}
+
+			.project-name:hover span:first-child,
+			.project-name:focus-visible span:first-child {
+				opacity: 0;
+			}
+
+			.project-name:hover .project-url,
+			.project-name:focus-visible .project-url {
+				opacity: 1;
+			}
+
+			.project-description {
+				font-size: 14px;
+				line-height: 1.45;
+			}
+
+			@media (max-width: 640px) {
+				body {
+					padding: 72px 20px;
+				}
+
+				.content {
+					gap: 32px;
+				}
+
+				h1 {
+					font-size: 24px;
+				}
+
+				.tagline,
+				.link {
+					font-size: 15px;
 				}
 			}
 		</style>
 	</head>
 	<body>
-		<div style="padding: 50px; max-width: 400px; margin: 0 auto">
-			<h1>Hi!</h1>
-			<h3>I'm Steve Boyer 👋</h3>
-			<h4>A software engineer from Salt Lake City, Utah.</h4>
-			<p style="margin-top: 40px">
-				<b>ABOUT ME</b>
-			</p>
-			<p>
-				I've been developing websites since 1995. Angelfire didn't know what hit them when Stevee Wonder's Awesome
-				Web Page launched, complete with javascript-powered image hover states and animated banners.
-			</p>
-			<p>
-				The web has come a long way since then, and the technologies have gotten more advanced and in many cases
-				better. I've worked with a wide variety of languages and frameworks over the years, but my passion has
-				always been building great user experiences.
-			</p>
-			<p>
-				My toolkit is ever-expanding, but currently I'm loving building full-stack web apps with React and Node.js,
-				and mobile apps with React Native -- TypeScript everywhere.
-			</p>
-			<hr />
-			<p><b>CONTACT</b></p>
-			<p>
-				Reach out! I'd love to hear about your project or opportunity. Email me at
-				<a href="mailto:stevejboyer@gmail.com">stevejboyer@gmail.com</a>.
-			</p>
-			<hr />
-			<p><b>RESUME</b></p>
-			<p>Click <a href="SteveBoyerResume.pdf">here</a> to download my resume.</p>
-			<div style="margin: 80px auto 0">
-				<img src="construction.gif" alt="Under Construction" style="max-width: 200px" />
-				<p class="blink">&lt;blink&gt;Thanks for stopping by!&lt;/blink&gt;</p>
+		<main>
+			<div class="content">
+				<section class="identity" aria-label="Introduction">
+					<img class="portrait" src="steve.jpg" alt="Portrait of Steve Boyer" />
+					<h1>steve boyer</h1>
+					<p class="tagline">i like to make things</p>
+				</section>
+
+				<nav class="links" aria-label="Social links">
+					<a class="link" href="https://github.com/stevejboyer" target="_blank" rel="noreferrer">[github]</a>
+					<a class="link" href="https://linkedin.com/in/stevejboyer" target="_blank" rel="noreferrer"
+						>[linkedin]</a
+					>
+					<a class="link" href="SteveBoyerResume.pdf">[resume]</a>
+				</nav>
+
+				<div class="divider" aria-hidden="true"></div>
+
+				<section class="projects" aria-labelledby="projects-label">
+					<p class="projects-label" id="projects-label">side projects</p>
+					<div class="project-list">
+						<article class="project">
+							<a class="project-name" href="https://usesnaps.com" target="_blank" rel="noreferrer"><span>snaps</span><span class="project-url">usesnaps.com</span></a>
+							<p class="project-description">capture animated gif recordings and screen grabs</p>
+						</article>
+						<article class="project">
+							<a class="project-name" href="https://useswipes.com" target="_blank" rel="noreferrer"><span>swipes</span><span class="project-url">useswipes.com</span></a>
+							<p class="project-description">track your credit card swipes and analyze your spending</p>
+						</article>
+						<article class="project">
+							<a class="project-name" href="https://stickypix.app" target="_blank" rel="noreferrer"><span>stickypix</span><span class="project-url">stickypix.app</span></a>
+							<p class="project-description">sell photo magnets live at events or online</p>
+						</article>
+						<article class="project">
+							<a class="project-name" href="https://burner.dev" target="_blank" rel="noreferrer"><span>burner</span><span class="project-url">burner.dev</span></a>
+							<p class="project-description">tools for your coding agent to spin up a preview of your web app</p>
+						</article>
+						<article class="project">
+							<a class="project-name" href="https://github.com/stevejboyer/santa-claude" target="_blank" rel="noreferrer"><span>santa-claude</span><span class="project-url">github.com/stevejboyer/santa-claude</span></a>
+							<p class="project-description">
+								an open source tool to track your claude code sessions (deprecated)
+							</p>
+						</article>
+						<article class="project">
+							<a class="project-name" href="https://github.com/stevejboyer/drawbridge" target="_blank" rel="noreferrer"><span>drawbridge</span><span class="project-url">github.com/stevejboyer/drawbridge</span></a>
+							<p class="project-description">
+								an open source tool to communicate with your ai coding agent via MCP on Excalidraw
+							</p>
+						</article>
+					</div>
+				</section>
 			</div>
-		</div>
+		</main>
 	</body>
 </html>
